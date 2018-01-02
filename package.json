@@ -1,0 +1,12 @@
+{
+  "name": "carolandandy.com",
+  "version": "1.0.0",
+  "description": "wedding",
+  "main": "index.js",
+  "repository": "git@github.com:andylei/carolandandy.com.git",
+  "author": "Andy Lei <andylei@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "node-sass": "^4.7.2"
+  }
+}
