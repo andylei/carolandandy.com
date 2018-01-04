@@ -1,0 +1,47 @@
+/*
+$col-bg: #f5f2e8;
+$col-hl-dark-blue: #27418c;
+$col-hl-light-blue: #C8DAEF;
+$col-hl-dark-green: #428774;
+$col-hl-light-green: #97B6AA;
+$col-hl-red: #D1BCC2;
+*/
+
+body {
+  font-family: Lato, Merriweather, Georgia, serif;
+}
+
+html {
+  background: url('./img/bg3.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.title {
+  margin-top: 30vh;
+  padding: 0;
+  width: 100%;
+  text-align: center;
+}
+
+.title > * {
+  padding: 3vh 3vw;
+
+  color: $col-hl-dark-blue;
+  background-color: rgba(255, 255, 255, 0.4);
+  margin: 0 auto;
+  width: fit-content;
+}
+
+.title h1 {
+  margin-bottom: 2vh;
+  font-size: 10vh;
+}
+
+.title h2 {
+  margin-bottom: 2vh;
+  font-size: 6vh;
+}
+
+.title h3 {
+  font-size: 4vh;
+}
