@@ -17,8 +17,9 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['dist']),
     new WebPlugin({
-      template: 'src/index.html',
-      filename: 'index.html'
+      template: './src/index.html',
+      filename: 'index.html',
+      requires: ['index']
     })
   ],
   module: {
