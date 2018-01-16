@@ -69,13 +69,41 @@ html {
 
 .nav {
   margin-top: 1vh;
+  position: fixed;
+  top: 5px;
+  right: 10px;
 }
 
-.separator {
-  margin-left: 10px;
-  margin-right: 10px;
-  font-weight: 800;
-  font-family: Georgia, serif;
+.nav button {
+  background: none !important;
+  color: inherit;
+  border: none;
+  padding: 0! important;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit !important;
+}
+
+#links {
+  display: none;
+  position: absolute;
+  top: 0;
+  right: 0;
+
+  background-color: white;
+  padding: 10px 20px;
+}
+
+#links.show {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  height: 150px;
+}
+
+#links a {
+  display: block;
+  width: max-content;
 }
 
 a {

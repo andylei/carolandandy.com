@@ -15,9 +15,32 @@ function tick_countdown() {
   }
 }
 
+function getEle(id) {
+  return document.getElementById(id);
+}
+
 function begin_countdown_loop() {
   tick_countdown();
   window.setInterval(tick_countdown, 1 * MINUTES);
 }
 
-begin_countdown_loop();
+function show_nav() {
+  getEle('links').classList.add('show');
+  getEle('hamberger').classList.add('hide');
+}
+
+function hide_nav() {
+  getEle('links').classList.remove('show');
+  getEle('hamberger').classList.remove('hide');
+}
+
+function bind_buttons() {
+  getEle('hamberger').addEventListener('click', show_nav);
+}
+
+function init() {
+  begin_countdown_loop();
+  bind_buttons();
+}
+
+init();
