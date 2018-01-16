@@ -20,41 +20,55 @@ $col-hl-red: #D1BCC2;
 
 body {
   font-family: MrsEaves, Georgia, serif;
+  margin: 0;
 }
 
 html {
-  background: url('./img/bg4.jpg') no-repeat center center fixed;
+  background: url('./img/bg5.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
 .title {
-  margin-top: 30vh;
-  padding: 0;
+  padding: 4vh 0;
+  margin-top: 25vh;
   width: 100%;
   text-align: center;
 
-  color: white;
+  color: black;
+  background-color: rgba(256, 256, 256, .4);
 }
 
 .title > * {
-  padding: 3vh 3vw;
-  margin: 0 auto;
+  margin: 3vh auto;
   width: fit-content;
 }
 
 .title h1 {
   font-weight: 1000;
-  margin-bottom: 2vh;
   font-size: 10vh;
   font-family: bombshell;
 }
 
+.logo table {
+  font-family: MrsEaves;
+  font-size: 6vh;
+  text-align: center;
+  color: black;
+}
+
+.hl {
+  color: white;
+}
+
 .countdown {
-  font-size: 4vh;
+  position: fixed;
+  bottom: 5px;
+  right: 10px;
+  font-size: 3vh;
 }
 
 .nav {
-  margin-top: 2vh;
+  margin-top: 1vh;
 }
 
 .separator {
@@ -65,7 +79,7 @@ html {
 }
 
 a {
-  color: white;
+  color: black;
   text-decoration: none;
   font-size: 1.5em;
 }

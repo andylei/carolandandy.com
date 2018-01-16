@@ -8,7 +8,7 @@ const SECONDS = 1000;
 const MINUTES = SECONDS * 60;
 
 function tick_countdown() {
-  let s = countdown(THE_DATE, null, COUNTDOWN_UNITS).toString();
+  let s = 'in ' + countdown(THE_DATE, null, COUNTDOWN_UNITS).toString();
   let elements = document.getElementsByClassName('countdown');
   for (let ele of elements) {
     ele.innerHTML = s.replace(' and', ',');
