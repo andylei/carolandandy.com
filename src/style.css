@@ -7,12 +7,23 @@ $col-hl-light-green: #97B6AA;
 $col-hl-red: #D1BCC2;
 */
 
+@font-face {
+  font-family: "bombshell";
+  src: url("./fonts/bombshell.woff2") format("woff2"),
+    url("./fonts/bombshell.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "MrsEaves";
+  src: url("./fonts/mrseaves.ttf") format("truetype");
+}
+
 body {
-  font-family: Lato, Merriweather, Georgia, serif;
+  font-family: MrsEaves, Georgia, serif;
 }
 
 html {
-  background: url('./img/bg3.jpg') no-repeat center center fixed;
+  background: url('./img/bg4.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -21,27 +32,40 @@ html {
   padding: 0;
   width: 100%;
   text-align: center;
+
+  color: white;
 }
 
 .title > * {
   padding: 3vh 3vw;
-
-  color: $col-hl-dark-blue;
-  background-color: rgba(255, 255, 255, 0.4);
   margin: 0 auto;
   width: fit-content;
 }
 
 .title h1 {
+  font-weight: 1000;
   margin-bottom: 2vh;
   font-size: 10vh;
+  font-family: bombshell;
 }
 
-.title h2 {
-  margin-bottom: 2vh;
-  font-size: 6vh;
-}
-
-.title h3 {
+.countdown {
   font-size: 4vh;
+}
+
+.nav {
+  margin-top: 2vh;
+}
+
+.separator {
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: 800;
+  font-family: Georgia, serif;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
 }

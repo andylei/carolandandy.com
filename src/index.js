@@ -11,7 +11,7 @@ function tick_countdown() {
   let s = countdown(THE_DATE, null, COUNTDOWN_UNITS).toString();
   let elements = document.getElementsByClassName('countdown');
   for (let ele of elements) {
-    ele.innerHTML = s;
+    ele.innerHTML = s.replace(' and', ',');
   }
 }
 
