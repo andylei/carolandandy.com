@@ -1,7 +1,7 @@
 require("./style.css");
 
 const countdown = require('countdown');
-const THE_DATE = new Date(2018, 8, 18, 17);
+const THE_DATE = new Date(1534626000000);
 const COUNTDOWN_UNITS = countdown.DAYS | countdown.HOURS | countdown.MINUTES;
 
 const SECONDS = 1000;
