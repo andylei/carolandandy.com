@@ -1,7 +1,9 @@
 require('./story.css');
 require('vis/dist/vis.css');
-
+const loadGoogleMapsAPI = require('load-google-maps-api');
 const vis = require('vis');
+
+const GMAP_API_KEY = 'AIzaSyDWkfZYTFW_9d2eIJwFnXznFWIXmiMQIr4';
 
 let container = document.getElementById('timeline');
 let data = [
@@ -26,3 +28,16 @@ let groups = [
 ];
 
 let timeline = new vis.Timeline(container, data, groups, opts);
+
+function initMap(gMaps) {
+  let map = new gMaps.Map(document.getElementById('map'), {
+    zoom: 3,
+    center: new gMaps.LatLng(2.8,-187.3),
+    mapTypeId: 'terrain',
+    disableDefaultUI: true,
+    gestureHandling: 'none',
+    keyboardShortcuts: false
+  });
+}
+
+loadGoogleMapsAPI({key: GMAP_API_KEY}).then(initMap);

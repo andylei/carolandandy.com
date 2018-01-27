@@ -8,6 +8,7 @@
   "license": "MIT",
   "dependencies": {
     "countdown": "^2.6.0",
+    "load-google-maps-api": "^1.0.1",
     "vis": "^4.21.0"
   },
   "devDependencies": {
