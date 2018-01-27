@@ -1,0 +1,38 @@
+[
+  {
+    "group": "andy",
+    "content": "Andy is Born!",
+    "start": "1988-04-22",
+    "loc": {"lat": 31.2304, "lng": 121.4737}
+  },
+  {
+    "group": "carol",
+    "content": "Carol is Born",
+    "start": "1988-05-02",
+    "loc": {"lat": 42.2008575, "lng": -88.2145259}
+  },
+  {
+    "group": "andy",
+    "content": "Andy moves to America",
+    "start": "1991-04-01",
+    "loc": {"lat": 37.7273, "lng": -89.2167}
+  },
+  {
+    "group": "carol",
+    "content": "Carol moves to NY",
+    "start": "2010-08-01",
+    "loc": {"lat": 40.7127753, "lng": -74.0059728}
+  },
+  {
+    "group": "both",
+    "content": "We get engaged",
+    "start": "2016-11-20",
+    "loc": {"lat": 31.2304, "lng": 121.4737}
+  },
+  {
+    "group": "both",
+    "content": "Wedding!",
+    "start": "2018-08-18",
+    "loc": {"lat": 31.2304, "lng": 121.4737}
+  }
+]

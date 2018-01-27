@@ -1,13 +1,9 @@
 #map {
-  height: 50vh;
-}
-
-#timelines {
-  height: 50vh;
+  height: 70%;
 }
 
 .timeline {
-  height: 50%;
+  height: 30%;
 }
 
 .line {
