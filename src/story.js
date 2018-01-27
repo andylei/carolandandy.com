@@ -18,7 +18,11 @@ for(let di of data) {
   i++;
 }
 let opts = {
-  zoomable: false,
-  type: 'point'
+  zoomable: false
 };
-let timeline = new vis.Timeline(container, data, opts);
+let groups = [
+  {id: 'andy', content: 'Andy'},
+  {id: 'carol', content: 'Carol'},
+];
+
+let timeline = new vis.Timeline(container, data, groups, opts);
