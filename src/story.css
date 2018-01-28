@@ -31,3 +31,8 @@
   max-width: 20vw;
   max-height: 20vh;
 }
+
+/* dont show the close control */
+.gm-style-iw + div {
+  display: none;
+}

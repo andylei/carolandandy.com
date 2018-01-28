@@ -112,6 +112,7 @@ function initMap(gMaps) {
       content: buildInfoWindowContent(event)
     });
     info.open(map, marker);
+    event.info = info;
 
     // figure out which events should be visible
     let discardedEvent = null;
@@ -124,10 +125,16 @@ function initMap(gMaps) {
       state.prevCarol = event;
     }
 
-    // clear out markers for old events
-    if (discardedEvent && discardedEvent.marker) {
-      discardedEvent.marker.setMap(null);
-      discardedEvent.marker = null;
+    // clear out dom for old events
+    if (discardedEvent) {
+      if (discardedEvent.marker) {
+        discardedEvent.marker.setMap(null);
+        discardedEvent.marker = null;
+      }
+      if (discardedEvent.info) {
+        discardedEvent.info.close();
+        discardedEvent.info = null;
+      }
     }
 
     events = [state.prevAndy, state.prevCarol].filter(Boolean);
