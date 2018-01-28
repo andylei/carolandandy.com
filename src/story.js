@@ -12,9 +12,6 @@ for (let di of data) {
   di.id = i;
   i++;
 }
-let opts = {
-  zoomable: false
-};
 let groups = [{
     id: 'andy',
     content: 'Andy'
@@ -88,10 +85,18 @@ function initMap(gMaps) {
     prevCarol: null
   };
 
-  let timeline = new vis.Timeline(container, data, groups, opts);
+  let timeline;
+  let timelineOpts = {
+    zoomable: false,
+    onInitialDrawComplete: function() {
+      timeline.setWindow('1988-01-01', '1998-01-01', {animation: false});
+    }
+  };
+
+  timeline = new vis.Timeline(container, data, groups, timelineOpts);
 
   timeline.on('select', function (selectEvent) {
-    if (!selectEvent.items) {
+    if (!selectEvent.items || !selectEvent.items.length) {
       return;
     }
     let event = data[selectEvent.items[0]];
