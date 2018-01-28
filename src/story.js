@@ -1,8 +1,8 @@
-require('./story.css');
-require('vis/dist/vis.css');
-const loadGoogleMapsAPI = require('load-google-maps-api');
-const vis = require('vis');
-const data = require('./storydata.json');
+import './story.css';
+import 'vis/dist/vis.css';
+import loadGoogleMapsAPI from 'load-google-maps-api';
+import vis from 'vis';
+import data from './storydata.js';
 
 const GMAP_API_KEY = 'AIzaSyDWkfZYTFW_9d2eIJwFnXznFWIXmiMQIr4';
 
@@ -61,6 +61,15 @@ function smartBound(loc0, loc1) {
   return {north: n, south: s, east: e, west: w};
 }
 
+function buildInfoWindowContent(event) {
+  let img = event.img ? `<img class="on-map" src="${event.img}">` : '';
+  return `
+    <div class="date">${event.start}</div>
+    <div class="desc">${event.desc}</div>
+    ${img}
+  `;
+}
+
 function initMap(gMaps) {
   function gcoord(loc) {
     return new gMaps.LatLng(loc.lat, loc.lng);
@@ -99,6 +108,10 @@ function initMap(gMaps) {
     event.marker = marker;
 
     // show on map pics
+    let info = new gMaps.InfoWindow({
+      content: buildInfoWindowContent(event)
+    });
+    info.open(map, marker);
 
     // figure out which events should be visible
     let discardedEvent = null;
@@ -118,15 +131,12 @@ function initMap(gMaps) {
     }
 
     events = [state.prevAndy, state.prevCarol].filter(Boolean);
-    console.log(events);
 
     // build a bounding box of the visible events
     switch (events.length) {
       case 2:
         let bound = smartBound(events[0].loc, events[1].loc)
         let boundWidth = Math.abs(bound.west - bound.east);
-        console.log(boundWidth);
-        console.log(bound);
         if (boundWidth < 100) {
           map.fitBounds(bound);
           break;

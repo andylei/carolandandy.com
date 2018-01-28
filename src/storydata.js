@@ -1,13 +1,16 @@
-[
+export default [
   {
     "group": "andy",
-    "content": "Andy is Born!",
+    "content": "Andy is Born",
+    "img": require('./img/andy-baby.jpg'),
+    "desc": "May Huang and David Lei welcome little Andy into the world.",
     "start": "1988-04-22",
     "loc": {"lat": 31.2304, "lng": 121.4737}
   },
   {
     "group": "carol",
     "content": "Carol is Born",
+    "desc": "Richard and Mary Berger welcome little Carol into the world",
     "start": "1988-05-02",
     "loc": {"lat": 42.2008575, "lng": -88.2145259}
   },
