@@ -82,31 +82,34 @@ function initMap(gMaps) {
 
   let state = {
     prevAndy: null,
-    prevCarol: null
+    prevCarol: null,
+    curr: -1
   };
 
   let timeline;
   let timelineOpts = {
     zoomable: false,
     onInitialDrawComplete: function() {
-      timeline.setWindow('1988-01-01', '1998-01-01', {animation: false});
+      timeline.setWindow('1987-09-01', '1998-01-01', {animation: false});
     }
   };
 
   timeline = new vis.Timeline(container, data, groups, timelineOpts);
-
-  timeline.on('select', function (selectEvent) {
-    if (!selectEvent.items || !selectEvent.items.length) {
+  document.getElementById('next').addEventListener('click', function() {
+    if (state.curr >= data.length - 1) {
       return;
     }
-    let event = data[selectEvent.items[0]];
+
+    state.curr += 1;
+    timeline.setSelection(state.curr, {focus: true});
+
+    let event = data[state.curr];
     console.log(event);
 
     // place a marker at the new event
     let letter = event.group.substr(0, 1).toUpperCase();
     let marker = new gMaps.Marker({
       animation: gMaps.Animation.DROP,
-      // icon: "http://maps.google.com/mapfiles/marker" + letter + ".png",
       position: event.loc,
       map
     });

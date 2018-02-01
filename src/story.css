@@ -1,9 +1,28 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
 #map {
   height: 70%;
 }
 
-.timeline {
+#bottom {
   height: 30%;
+  display: flex;
+}
+
+#timeline {
+  flex-grow: 1;
+}
+
+#controls {
+  width: 50px;
+  height: 100%;
+}
+
+#next {
+  height: 100%;
 }
 
 .line {

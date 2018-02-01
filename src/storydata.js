@@ -15,7 +15,7 @@ export default [
     "loc": {"lat": 42.2008575, "lng": -88.2145259}
   },
   {
-    "group": "Carol",
+    "group": "carol",
     "content": "The Bergers move to Minnesota.",
     "desc": "Money magazine consistently ranks Eden Prairie, Minnesota as one of the best places to live.",
     "start": "1988-11-01",
