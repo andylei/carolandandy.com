@@ -5,6 +5,7 @@ import vis from 'vis';
 import data from './storydata.js';
 
 const GMAP_API_KEY = 'AIzaSyDWkfZYTFW_9d2eIJwFnXznFWIXmiMQIr4';
+const METER_TO_MILE = 0.000621371;
 
 let container = document.getElementById('timeline');
 let i = 0;
@@ -94,6 +95,60 @@ function initMap(gMaps) {
     }
   };
 
+  function latlng(loc) {
+    return new gMaps.LatLng(loc.lat, loc.lng);
+  }
+
+  function computeDist() {
+    if (!state.prevAndy || !state.prevCarol) {
+      return null;
+    }
+    let m = gMaps.geometry.spherical.computeDistanceBetween(
+      latlng(state.prevAndy.loc), latlng(state.prevCarol.loc));
+    return Math.round(m * METER_TO_MILE);
+  }
+
+  function smoothPan(target) {
+    let current = map.getBounds();
+    let c = {
+      north: current.getNorthEast().lat(),
+      east: current.getNorthEast().lng(),
+      south: current.getSouthWest().lat(),
+      west: current.getSouthWest().lng()
+    };
+    let stepSize = Math.min(
+      Math.abs(c.north - c.south),
+      Math.abs(c.west - c.east)
+    ) / 2;
+    let keys = ['north', 'east', 'south', 'west'];
+    let panTo = {};
+    let lastStep = false;
+    let deltas = {};
+    for (let key of keys) {
+      let sign = target[key] > c[key] ? 1 : -1;
+      let delta = Math.abs(c[key] - target[key]);
+      deltas[key] = delta;
+      let step = sign * Math.min(stepSize, delta);
+      panTo[key] = c[key] + step;
+    }
+    if (deltas.north < stepSize && deltas.south < stepSize) {
+      lastStep = true;
+    } else if (deltas.west < stepSize && deltas.east < stepSize) {
+      lastStep = true;
+    }
+    if (!lastStep) {
+      gMaps.event.addListenerOnce(map, 'idle', function() {
+        smoothPan(target);
+      });
+    } else {
+      console.log(deltas);
+      console.log(stepSize);
+      console.log(panTo);
+      console.log(target);
+    }
+    map.fitBounds(panTo);
+  }
+
   timeline = new vis.Timeline(container, data, groups, timelineOpts);
   document.getElementById('next').addEventListener('click', function() {
     if (state.curr >= data.length - 1) {
@@ -145,11 +200,12 @@ function initMap(gMaps) {
       }
     }
 
+    document.getElementById('dist').innerText = computeDist() + ' miles';
     events = [state.prevAndy, state.prevCarol].filter(Boolean);
 
-    // build a bounding box of the visible events
     switch (events.length) {
       case 2:
+        // build a bounding box of the visible events
         let bound = smartBound(events[0].loc, events[1].loc)
         let boundWidth = Math.abs(bound.west - bound.east);
         if (boundWidth < 100) {
@@ -167,5 +223,6 @@ function initMap(gMaps) {
 }
 
 loadGoogleMapsAPI({
-  key: GMAP_API_KEY
+  key: GMAP_API_KEY,
+  libraries: ['geometry']
 }).then(initMap);
