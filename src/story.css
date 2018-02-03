@@ -1,0 +1,57 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map {
+  height: 70%;
+}
+
+#bottom {
+  height: 30%;
+  display: flex;
+}
+
+#timeline {
+  flex-grow: 1;
+}
+
+#controls {
+  width: 50px;
+  height: 100%;
+}
+
+#next {
+  height: 100%;
+}
+
+.line {
+  width: 100%;
+  background-color: grey;
+  height: 5px;
+}
+
+.event-connector {
+  margin-left: 30px;
+  width: 1px;
+  height: 30px;
+  border-left: 1px solid grey;
+}
+
+.event {
+  margin-left: 30px;
+  width: fit-content;
+  border: 1px solid grey;
+  text-align: center;
+  padding: 4px;
+}
+
+.gm-style img.on-map {
+  max-width: 20vw;
+  max-height: 20vh;
+}
+
+/* dont show the close control */
+.gm-style-iw + div {
+  display: none;
+}
