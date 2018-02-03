@@ -1,4 +1,5 @@
 require("./style.css");
+require("./index.css");
 
 const countdown = require('countdown');
 const THE_DATE = new Date(1534626000000);

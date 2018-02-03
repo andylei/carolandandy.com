@@ -1,0 +1,53 @@
+html {
+  background: url('./img/foundry-ivy.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: -20;
+}
+
+body {
+  font-family: Helvetica;
+}
+
+h1 {
+  margin: 0;
+}
+
+.cards {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 20px;
+
+  width: 60vw;
+  max-width: 600px;
+  min-width: 400px;
+  height: 100%;
+  min-height: 100vh;
+  background-color: rgba(255, 255, 255, 0.6);
+
+  box-shadow: 0 0 5px 5px rgba(255, 255, 255, 0.5);
+}
+
+.card {
+  margin-bottom: 40px;
+}
+
+.card h2 {
+  font-family: MrsEaves, serif;
+  font-size: 36px;
+}
+
+.card .content {
+  margin-left: 12px;
+}
