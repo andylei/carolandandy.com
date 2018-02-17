@@ -7,7 +7,9 @@
   "author": "Andy Lei <andylei@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "countdown": "^2.6.0"
+    "countdown": "^2.6.0",
+    "load-google-maps-api": "^1.0.1",
+    "vis": "^4.21.0"
   },
   "devDependencies": {
     "clean-webpack-plugin": "^0.1.17",
