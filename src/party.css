@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather');
+
+html {
+  /*background: url('./img/foundry-ivy.jpg') no-repeat center center fixed;*/
+  background: url('./img/bg-triangle.jpg') repeat;
+
+  text-align: center;
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  width: 100%;
+  min-height: 100%;
+  background-color: rgba(212, 211, 211, 0.9);
+
+  font-family: 'Merriweather', serif;
+}
+
+h1 {
+  margin-top: 0;
+  margin-bottom: 10px;
+  padding-top: 30px;
+  font-family: bombshell;
+  font-size: 50px;
+}
+
+.row {
+  width: 80vw;
+  max-width: 800px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  margin-bottom: 20px;
+
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+}
+
+.cell {
+  width: 37vw;
+  max-width: 370px;
+}
+
+.cell p {
+  margin: 10px 15px;
+}
+
+.cell img {
+  width: 100%;
+}
+
+.cell .name {
+  font-size: 20px;
+  border-bottom: 1px solid grey;
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  padding: 5px 30px 5px;
+}
