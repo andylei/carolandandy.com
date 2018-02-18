@@ -25,18 +25,12 @@ function begin_countdown_loop() {
   window.setInterval(tick_countdown, 1 * MINUTES);
 }
 
-function show_nav() {
-  getEle('links').classList.add('show');
-  getEle('hamberger').classList.add('hide');
-}
-
-function hide_nav() {
-  getEle('links').classList.remove('show');
-  getEle('hamberger').classList.remove('hide');
+function toggle_nav() {
+  getEle('nav').classList.toggle('open');
 }
 
 function bind_buttons() {
-  getEle('hamberger').addEventListener('click', show_nav);
+  getEle('hamberger').addEventListener('click', toggle_nav);
 }
 
 function init() {

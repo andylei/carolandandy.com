@@ -13,47 +13,66 @@ body {
   margin: 0;
 }
 
-.nav {
+#nav {
   margin-top: 1vh;
   position: fixed;
   top: 5px;
-  right: 10px;
+  left: 10px;
+
+  height: 48px;
+  max-width: 48px;
+  overflow: hidden;
+
+  transition: max-width 700ms ease, background-color 100ms linear 700ms;
 }
 
-.nav button {
+#nav button {
   background: none !important;
-  color: inherit;
+  color: black;
   border: none;
   padding: 0! important;
   font: inherit;
   cursor: pointer;
   outline: inherit !important;
+
+  height: 48px;
+  width: 48px;
+
+  transition: transform .5s ease;
+  transform: rotate(0deg);
+}
+
+#nav.open {
+  background-color: rgba(255, 255, 255, 0.5);
+
+  max-width: 500px;
+  transition: max-width 700ms ease, background-color 200ms ease;
+}
+
+#nav.open button {
+  transition: transform .5s ease;
+  transform: rotate(90deg);
 }
 
 #links {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-
-  background-color: white;
-  padding: 10px 20px;
+  float: right;
+  line-height: 48px;
 }
 
-#links.show {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-evenly;
-  height: 150px;
+#links .separator {
+  border-right: 1px solid black;
+  margin-right: 10px;
+  height: 30px;
 }
 
-#links a {
-  display: block;
-  width: max-content;
-}
-
-.nav a {
+#nav a {
   color: black;
   text-decoration: none;
   font-size: 1.5em;
+  
+  padding-right: 10px;
+}
+
+#nav a:last-child {
+  padding-right: 10px;
 }
