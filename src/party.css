@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Abril+Fatface|Lora|Noto+Serif|Playfair+Display|Raleway');
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
 html {
   background-image: url('./img/bg-marble.jpg');
@@ -11,34 +11,20 @@ body {
   width: 100%;
   min-height: 100%;
 
-  font-family: 'Lora', serif;
-}
-
-body.rl {
-  font-family: 'Raleway', serif;
-}
-body.ab {
-  font-family: 'Abril Fatface', serif;
-}
-body.lo {
-  font-family: 'Lora', serif;
-}
-body.no {
-  font-family: 'Noto Serif', serif;
-}
-body.pl {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Fjalla One', serif;
 }
 
 h1 {
   margin: 30px auto 32px auto;
-  padding: 10px 0;
-  font-family: bombshell;
   font-size: 50px;
+  font-family: MrsEaves;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: .06em;
 
   width: 80vw;
+  color: rgba(0, 0, 0, .6);
   max-width: 800px;
-  background-color: rgba(255, 255, 255, .3);
 }
 
 .row {
@@ -79,14 +65,12 @@ h1 {
   filter: none;
 }
 
-.cell .name {
-  font-size: 16px;
-  border-bottom: 1px solid lightgray;
-  margin-top: 0;
-  width: fit-content;
-  padding: 5px 30px 5px 0;
+.name {
+  font-size: 26px;
+  color: white;
 }
 
 .blurb {
-  font-size: 14px;
+  font-size: 16px;
+  letter-spacing: .03em;
 }
