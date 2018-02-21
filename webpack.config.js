@@ -7,7 +7,8 @@ const PAGES = [
   'index',
   'story',
   'logistics',
-  'photos'
+  'photos',
+  'party'
 ]
 
 module.exports = {
