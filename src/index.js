@@ -1,5 +1,7 @@
-require("./style.css");
-require("./index.css");
+import "./style.css";
+import "./index.css";
+
+import init_nav_button from "./nav";
 
 const countdown = require('countdown');
 const THE_DATE = new Date(1534626000000);
@@ -21,4 +23,9 @@ function begin_countdown_loop() {
   window.setInterval(tick_countdown, 1 * MINUTES);
 }
 
-begin_countdown_loop();
+function init() {
+  begin_countdown_loop();
+  init_nav_button();
+}
+
+init();

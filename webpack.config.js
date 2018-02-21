@@ -25,7 +25,7 @@ module.exports = {
     contentBase: './dist'
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'])
   ].concat(PAGES.map((p) => new WebPlugin({
     template: `./src/${p}.html`,
     filename: `${p}.html`,

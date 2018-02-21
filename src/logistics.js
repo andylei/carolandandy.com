@@ -2,6 +2,7 @@ import "./style.css";
 import "./logistics.css";
 
 import loadGoogleMapsAPI from 'load-google-maps-api';
+import init_nav_button from "./nav";
 
 const GMAP_API_KEY = 'AIzaSyDWkfZYTFW_9d2eIJwFnXznFWIXmiMQIr4';
 const FOUNDRY_LOC = { lat: 40.7530823, lng: -73.9494638 };
@@ -244,3 +245,4 @@ loadGoogleMapsAPI({ key: GMAP_API_KEY }).then(function(gMaps) {
     map
   });
 });
+init_nav_button();

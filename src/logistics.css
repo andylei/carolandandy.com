@@ -14,11 +14,13 @@ html {
 }
 
 body {
-  font-family: Helvetica;
+  font-family: 'Fjalla One';
 }
 
 h1 {
   margin: 0;
+  font-family: 'MrsEaves', serif;
+  font-weight: normal;
 }
 
 .cards {
@@ -38,8 +40,8 @@ h1 {
 }
 
 .card {
-  font-family: MrsEaves;
-  font-size: 20px;
+  letter-spacing: 0.05em;
+  font-size: 16px;
   margin-bottom: 40px;
 }
 
@@ -48,7 +50,6 @@ h1 {
 }
 
 .card h1 {
-  font-family: bombshell;
   margin: 0;
   text-align: center;
   font-size: 52px;
@@ -73,5 +74,5 @@ h1 {
 }
 
 .emphasis {
-  font-weight: 600;
+  font-size: 1.5em;
 }

@@ -1,8 +1,4 @@
-@font-face {
-  font-family: "bombshell";
-  src: url("./fonts/bombshell.woff2") format("woff2"),
-    url("./fonts/bombshell.ttf") format("truetype");
-}
+@import url('https://fonts.googleapis.com/css?family=Fjalla+One');
 
 @font-face {
   font-family: "MrsEaves";
@@ -13,19 +9,70 @@ body {
   margin: 0;
 }
 
-.nav {
+#nav {
   margin-top: 1vh;
+  position: fixed;
+  top: 5px;
+  left: 10px;
+
+  height: 48px;
+  max-width: 48px;
+  overflow: hidden;
+
+  transition: max-width 700ms ease, background-color 100ms linear 700ms;
+  font-family: "Fjalla One", sans;
+  font-size: 14px;
+
+  z-index: 1000;
 }
 
-.separator {
-  margin-left: 10px;
+#nav button {
+  background: none !important;
+  color: black;
+  border: none;
+  padding: 0! important;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit !important;
+
+  height: 48px;
+  width: 48px;
+
+  transition: transform .5s ease;
+  transform: rotate(0deg);
+}
+
+#nav.open {
+  background-color: rgba(255, 255, 255, 0.5);
+
+  max-width: 500px;
+  transition: max-width 700ms ease, background-color 200ms ease;
+}
+
+#nav.open button {
+  transition: transform .5s ease;
+  transform: rotate(90deg);
+}
+
+#links {
+  float: right;
+  line-height: 48px;
+}
+
+#links .separator {
+  border-right: 1px solid black;
   margin-right: 10px;
-  font-weight: 800;
-  font-family: Georgia, serif;
+  height: 30px;
 }
 
-.nav a {
+#nav a {
   color: black;
   text-decoration: none;
   font-size: 1.5em;
+  
+  padding-right: 10px;
+}
+
+#nav a:last-child {
+  padding-right: 10px;
 }
