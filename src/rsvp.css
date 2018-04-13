@@ -1,0 +1,76 @@
+body {
+  font-family: "Fjalla One", sans;
+}
+
+.logo > table {
+  font-size: calc(32px + 4vh);
+}
+
+.title {
+  margin-top: 15vh;
+}
+
+.title h1 {
+  font-size: 6vh;
+}
+
+#find-reservation {
+  width: 50vw;
+  max-width: 600px;
+}
+
+#show-reservation {
+  width: 70vw;
+  max-width: 800px;
+}
+
+.reservation > * {
+  font-size: calc(32px + 2vh);
+}
+
+#reservation-error, .reservation input, .reservation button {
+  margin-bottom: 1vh;
+}
+
+#reservation-error {
+  color: #e91e63;
+  font-size: calc(24px + 1.5vh);
+  background-color: rgba(255, 255, 255, .7);
+}
+
+.reservation input, .reservation button {
+  font-size: calc(32px + 2vh);
+  display: block;
+  text-align: center;
+  font-family: "Fjalla One", sans;
+  border: none;
+  width: 100%;
+}
+
+input {
+  background-color: rgba(255, 255, 255, .7);
+}
+
+input:focus {
+  outline-color: #ffc107;
+  background-color: rgba(255, 255, 255, .9);
+}
+
+button[disabled] {
+  background-color: lightgrey;
+}
+
+button {
+  background-color: #ffc107;
+}
+
+#guest-list td {
+  text-align: center;
+}
+
+#guest-list input[type=checkbox] {
+  height: calc(32px + 2vh);
+  width: calc(32px + 2vh);
+  margin-left: auto;
+  margin-right: auto;
+}

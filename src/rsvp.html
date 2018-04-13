@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>RSVP</title>
+  </head>
+  <body>
+    <div class="title">
+      <div class="logo">
+        <table>
+          <tr> <td>C</td> <td>A</td> <td>R</td> <td>O</td> <td>L</td> <td class="hl">8</td>
+          </tr>
+          <tr> <td>A</td> <td>N</td> <td>D</td> <td>Y</td> <td class="hl">1</td> <td class="hl">8</td>
+          </tr>
+          <tr> <td>N</td> <td>Y</td> <td class="hl">2</td> <td class="hl">0</td> <td class="hl">1</td> <td class="hl">8</td>
+          </tr>
+        </table>
+      </div>
+      <div class="reservation">
+        <div id="find-reservation">
+          <div id="reservation-error" class="hidden">
+          </div>
+          <input id="rsvp-password" placeholder="RSVP Password" value="andyiscool" autofocus />
+          <input id="rsvp-name" placeholder="Your Name" value="janet he" />
+          <button id="rsvp-ok" >
+            <span id="rsvp-ok-label">OK</span>
+            <img id="rsvp-ok-spinner" class="hidden" src="./img/spinner.svg" />
+          </button>
+        </div>
+        <div id="show-reservation" class="hidden">
+          <table id="guest-list">
+            <thead>
+              <tr>
+                <th>Coming?</th>
+                <th>Guest Name</th>
+              </tr>
+            </thead>
+          </table>
+          <button id="guests-save">RSVP</button>
+        </div>
+      </div>
+    </div>
+    <div id="nav">
+      <button id="hamberger">
+        <img inline src="./img/burger-black.svg">
+      </button>
+      <div id="links">
+        <a href="/logistics.html">logistics</a>
+        <span class="separator"> </span>
+        <a href="/party.html">team</a>
+      </div>
+    </div>
+    <script src="rsvp"></script>
+  </body>
+</html>
