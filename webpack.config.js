@@ -8,6 +8,7 @@ const PAGES = [
   'story',
   'logistics',
   'photos',
+  'rsvp',
   'party'
 ]
 
@@ -22,7 +23,8 @@ module.exports = {
   },
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist'
+    contentBase: './dist',
+    port: 9000
   },
   plugins: [
     new CleanWebpackPlugin(['dist'])

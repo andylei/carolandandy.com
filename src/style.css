@@ -76,3 +76,7 @@ body {
 #nav a:last-child {
   padding-right: 10px;
 }
+
+.hidden {
+  display: none;
+}
