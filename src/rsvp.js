@@ -107,15 +107,21 @@ function handleRsvpSearch() {
 }
 
 function guestSaveLoading() {
-
+  document.getElementById('guests-save').setAttribute('disabled', 'disabled');
+  hide('guests-save-label');
+  show('guests-save-spinner');
 }
 
 function guestSaveDoneLoading() {
-
+  show('guests-save-label');
+  hide('guests-save-spinner');
 }
 
 function showSuccess(guests) {
-
+  hide('show-reservation');
+  document.getElementById('success').innerText =
+    'Thanks for RSVPing! Excited to see you  at the wedding!';
+  show('success');
 }
 
 function showCatastrophicFailure() {
@@ -164,7 +170,7 @@ function showReservation(password, json) {
     if (guest.name) {
       nameHtml = guest.name;
     } else {
-      nameHtml = `<input type="text" id="name-${guest.id}" placeholder="+1" />`;
+      nameHtml = `<input type="text" id="name-${guest.id}" placeholder="name of +1" />`;
     }
     let template = document.createElement('template');
     template.innerHTML = `

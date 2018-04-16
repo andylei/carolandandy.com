@@ -16,7 +16,7 @@
         </table>
       </div>
       <div class="reservation">
-        <div id="find-reservation">
+        <div id="find-reservation" class="panel">
           <div id="reservation-error" class="hidden">
           </div>
           <input type="text" id="rsvp-password" placeholder="RSVP Password" value="andyiscool" autofocus />
@@ -26,7 +26,7 @@
             <img id="rsvp-ok-spinner" class="hidden" src="./img/spinner.svg" />
           </button>
         </div>
-        <div id="show-reservation" class="hidden">
+        <div id="show-reservation" class="hidden panel">
           <table id="guest-list">
             <thead>
               <tr>
@@ -35,7 +35,12 @@
               </tr>
             </thead>
           </table>
-          <button id="guests-save">RSVP</button>
+          <button id="guests-save">
+            <span id="guests-save-label">RSVP</span>
+            <img id="guests-save-spinner" class="hidden" src="./img/spinner.svg" />
+          </button>
+        </div>
+        <div id="success" class="hidden panel">
         </div>
       </div>
     </div>
