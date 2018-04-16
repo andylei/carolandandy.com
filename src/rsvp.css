@@ -64,13 +64,29 @@ button {
   background-color: #ffc107;
 }
 
+#guest-list {
+  margin-right: auto;
+  margin-left: auto;
+}
+
 #guest-list td {
   text-align: center;
+  padding-bottom: 1vh;
+}
+
+@supports (zoom:2) {
+	#guest-list input[type=checkbox] {
+    zoom: 2;
+	}
+}
+@supports not (zoom:2) {
+	#guest-list input[type=checkbox] {
+		transform: scale(2);
+		margin: 15px;
+	}
 }
 
 #guest-list input[type=checkbox] {
-  height: calc(32px + 2vh);
-  width: calc(32px + 2vh);
   margin-left: auto;
   margin-right: auto;
 }

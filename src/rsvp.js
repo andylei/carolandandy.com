@@ -170,7 +170,7 @@ function showReservation(password, json) {
     template.innerHTML = `
       <tr class="guest">
         <td class="rsvp">
-          <input type="checkbox" id="rsvp-${guest.id}" />
+          <input type="checkbox" checked="checked" id="rsvp-${guest.id}" />
         </td>
         <td class="name">${nameHtml}</td>
       </tr>`.trim();
