@@ -4,8 +4,12 @@ import "./rsvp.css";
 
 import init_nav_button from "./nav";
 
-let HOST = 'https://carol-and-andy.appspot.com';
-HOST = 'http://localhost:8080';
+let HOST;
+if (process.env.NODE_ENV === 'production') {
+  HOST = 'https://carol-and-andy.appspot.com';
+} else {
+  HOST = 'http://localhost:8080';
+}
 
 let LOADED_RESERVATION = null;
 let PASSWORD = null;
