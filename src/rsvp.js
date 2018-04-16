@@ -2,6 +2,8 @@ import "./style.css";
 import "./index.css";
 import "./rsvp.css";
 
+import init_nav_button from "./nav";
+
 let HOST = 'https://carol-and-andy.appspot.com';
 HOST = 'http://localhost:8080';
 
@@ -11,6 +13,7 @@ let PASSWORD = null;
 function init() {
   bindRsvpSearchEvents();
   handleRsvpVisibility();
+  init_nav_button();
 }
 
 function showEle(ele, animateClass) {
