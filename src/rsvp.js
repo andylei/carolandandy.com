@@ -12,7 +12,6 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 let LOADED_RESERVATION = null;
-let PASSWORD = null;
 
 function init() {
   bindRsvpSearchEvents();
@@ -38,7 +37,6 @@ function hide(id) {
 
 function bindRsvpSearchEvents() {
   document.getElementById('rsvp-ok').addEventListener('click', handleRsvpSearch);
-  document.getElementById('rsvp-password').addEventListener('input', handleRsvpVisibility)
   document.getElementById('rsvp-name').addEventListener('input', handleRsvpVisibility)
 }
 
@@ -63,7 +61,6 @@ function handleGuestSave() {
   let xhr = new XMLHttpRequest();
   let url = `${HOST}/reservation/${res.reservation.id}`;
   xhr.open('PUT', url);
-  xhr.setRequestHeader('Secret-Password', PASSWORD);
   xhr.setRequestHeader('Content-Type', 'application/json')
   xhr.onload = function() {
     guestSaveDoneLoading();
@@ -77,9 +74,8 @@ function handleGuestSave() {
 }
 
 function handleRsvpVisibility() {
-  let password = document.getElementById('rsvp-password').value;
   let name = document.getElementById('rsvp-name').value;
-  let enabled = password && password.trim() && name && name.trim();
+  let enabled = name && name.trim();
   let button = document.getElementById('rsvp-ok');
   if (enabled) {
     button.removeAttribute('disabled');
@@ -91,19 +87,15 @@ function handleRsvpVisibility() {
 function handleRsvpSearch() {
   hide('reservation-error');
   rsvpSearchLoading();
-  let password = document.getElementById('rsvp-password').value;
   let name = document.getElementById('rsvp-name').value;
 
   let xhr = new XMLHttpRequest();
   let url = HOST + '/reservation?name=';
   xhr.open('GET', url + escape(name));
-  xhr.setRequestHeader('Secret-Password', password);
   xhr.onload = function() {
     rsvpSearchDoneLoading();
     if (xhr.status === 200) {
-      showReservation(password, JSON.parse(xhr.responseText));
-    } else if (xhr.status === 403) {
-      showAuthFailure();
+      showReservation(JSON.parse(xhr.responseText));
     } else if (xhr.status === 404) {
       showReservationNotFound(name);
     } else {
@@ -147,13 +139,6 @@ function rsvpSearchLoading() {
   hide('rsvp-ok-label');
 }
 
-function showAuthFailure() {
-  let errorEle = document.getElementById('reservation-error');
-  errorEle.innerText = 'Your RSVP password was incorrect. Please try again.';
-  showEle(errorEle);
-  document.getElementById('rsvp-password').focus();
-}
-
 function showReservationNotFound(name) {
   let errorEle = document.getElementById('reservation-error');
   errorEle.innerHTML = `
@@ -164,9 +149,8 @@ function showReservationNotFound(name) {
   document.getElementById('rsvp-name').focus();
 }
 
-function showReservation(password, json) {
+function showReservation(json) {
   bindGuestSaveEvents();
-  PASSWORD = password;
   LOADED_RESERVATION = json;
   hide('find-reservation');
   show('show-reservation');
