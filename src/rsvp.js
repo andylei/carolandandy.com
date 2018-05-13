@@ -13,10 +13,19 @@ if (process.env.NODE_ENV === 'production') {
 
 let LOADED_RESERVATION = null;
 
+function test_init() {
+  let name$ = document.getElementById('rsvp-name');
+  name$.value = 'janet he';
+  name$.dispatchEvent(new Event('input'));
+  document.getElementById('rsvp-ok').click();
+}
+
 function init() {
   bindRsvpSearchEvents();
   handleRsvpVisibility();
   init_nav_button();
+
+  test_init();
 }
 
 function showEle(ele, animateClass) {
@@ -41,21 +50,34 @@ function bindRsvpSearchEvents() {
 }
 
 function bindGuestSaveEvents() {
-  document.getElementById('guests-save').addEventListener('click', handleGuestSave);
+  document.querySelector('form#guests').addEventListener('submit', handleGuestSave);
 }
 
-function handleGuestSave() {
+function getFormData(form$) {
+  let data = new FormData(event.target);
+  let result = {};
+  for (let item of data) {
+    result[item[0]] = item[1];
+  }
+  return result;
+}
+
+function handleGuestSave(event) {
+  event.preventDefault();
   let res = LOADED_RESERVATION;
   if (!res) {
     return;
   }
   guestSaveLoading();
+  let formData = getFormData(event.target);
   for (let guest of res.guests) {
-    guest.coming = document.getElementById(`rsvp-${guest.id}`).checked;
-    let nameField = document.getElementById(`name-${guest.id}`);
-    if (nameField) {
-      guest.name = nameField.value;
+    guest.coming = formData['coming-' + guest.id] === 'yes';
+    let name = formData['name-' + guest.id];
+    if (name) {
+      guest.name = name;
     }
+    guest.dinner = formData['dinner-' + guest.id] || null;
+    guest.dietary = formData['dietary-' + guest.id] || null;
   }
   res.reservation.guests = res.guests;
   let xhr = new XMLHttpRequest();
@@ -161,16 +183,60 @@ function showReservation(json) {
     if (guest.name) {
       nameHtml = guest.name;
     } else {
-      nameHtml = `<input type="text" id="name-${guest.id}" placeholder="name of +1" />`;
+      nameHtml = `<input type="text" name="name-${guest.id}" placeholder="name of +1" />`;
     }
     let template = document.createElement('template');
     template.innerHTML = `
-      <tr class="guest">
-        <td class="rsvp">
-          <input type="checkbox" checked="checked" id="rsvp-${guest.id}" />
-        </td>
-        <td class="name">${nameHtml}</td>
-      </tr>`.trim();
+      <div class="guest">
+        <div class="name">${nameHtml}</div>
+        <div class="rsvp">
+          <div class="coming">
+            <div class="question">RSVP</div>
+            <div class="answer">
+              <input
+                type="radio"
+                name="coming-${guest.id}"
+                id="coming-${guest.id}-yes"
+                value="yes"
+                checked="checked"
+              >
+              <label for="coming-${guest.id}-yes">Happily accepts</label>
+              <input
+                type="radio"
+                name="coming-${guest.id}"
+                id="coming-${guest.id}-no"
+                value="no"
+              >
+              <label for="coming-${guest.id}-no">Regretfully declines</label>
+            </div>
+          </div>
+          <div class="dinner">
+            <div class="question">
+              Dinner
+            </div>
+            <div class="answer">
+              <input
+                type="radio"
+                name="dinner-${guest.id}"
+                id="dinner-${guest.id}-beef"
+                value="beef"
+                checked="checked"
+              >
+              <label for="dinner-${guest.id}-beef">Chili citrus short rib</label>
+              <input
+                type="radio"
+                name="dinner-${guest.id}"
+                id="dinner-${guest.id}-fish"
+                value="fish"
+              >
+              <label for="dinner-${guest.id}-fish">Miso roasted salmon</label>
+              <div class="dietary">
+                <textarea name="dietary-${guest.id}" placeholder="Dietary restrictions?"></textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>`.trim();
     guestList.appendChild(template.content.firstElementChild);
   }
 }

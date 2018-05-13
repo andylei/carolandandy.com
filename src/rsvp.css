@@ -2,8 +2,17 @@ body {
   font-family: "Fjalla One", sans;
 }
 
+:root {
+  --hl-color: #4a7292;
+}
+
 .logo > table {
   font-size: calc(32px + 4vh);
+}
+
+.logo .hl {
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: var(--hl-color);
 }
 
 .title {
@@ -17,13 +26,65 @@ body {
 }
 
 .reservation > .panel {
-  width: 50vw;
-  min-width: 300px;
-  max-width: 800px;
+  width: 10em;
+  min-width: 30vw;
+  max-width: 95vw;
 }
 
 .reservation > * {
-  font-size: calc(24px + 2vh);
+  font-size: 50px;
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 2.1) {
+  .reservation > * {
+    font-size: 65px;
+  }
+}
+
+@media
+(-webkit-min-device-pixel-ratio: 2.9) {
+  .reservation > * {
+    font-size: 80px;
+  }
+}
+
+.reservation input, .reservation button, .reservation textarea {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.reservation .name {
+  margin-bottom: .3em;
+}
+
+.reservation .rsvp {
+  font-size: 60%;
+}
+
+.reservation .rsvp > * {
+  margin-bottom: .7em;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.rsvp .answer {
+  flex-grow: .2;
+}
+
+.rsvp label {
+  display: block;
+  width: fit-content;
+}
+
+.rsvp .dietary {
+  margin-left: .85em;
+}
+
+.rsvp .dietary textarea {
+  width: 9em;
 }
 
 #reservation-error, .reservation input[type=text], .reservation button {
@@ -32,12 +93,10 @@ body {
 
 #reservation-error {
   color: #e91e63;
-  font-size: calc(24px + 1.5vh);
   background-color: rgba(255, 255, 255, .7);
 }
 
-.reservation input, .reservation button {
-  font-size: calc(28px + 2vh);
+.reservation input[type=text], .reservation button {
   display: block;
   text-align: center;
   font-family: "Fjalla One", sans;
@@ -45,12 +104,43 @@ body {
   width: 100%;
 }
 
+input[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+input[type="radio"] + label {
+  cursor: pointer;
+}
+
+input[type="radio"] + label::before {
+  content     : '✓';
+  display: inline-block;
+  width       : 1em;
+  color       : rgba(0,0,0,0);
+  font-size   : .8em;
+  line-height : 1em;
+  font-weight : bold;
+  margin      : .25em;
+  border-bottom : .05em solid black;
+  vertical-align  : middle;
+}
+
+input[type="radio"]:checked + label::before {
+  color: var(--hl-color);
+}
+
+input[type="radio"]:checked + label {
+  text-shadow: 1px 1px 1px var(--hl-color);
+}
+
 input {
   background-color: rgba(255, 255, 255, .7);
 }
 
 input:focus {
-  outline-color: #ffc107;
+  outline-color: var(--hl-color);
   background-color: rgba(255, 255, 255, .9);
 }
 
@@ -59,32 +149,9 @@ button[disabled] {
 }
 
 button {
-  background-color: #ffc107;
+  background-color: var(--hl-color);
 }
 
-#guest-list {
-  margin-right: auto;
-  margin-left: auto;
-}
-
-#guest-list td {
-  text-align: center;
-  padding-bottom: 1vh;
-}
-
-@supports (zoom:2) {
-	#guest-list input[type=checkbox] {
-    zoom: 2;
-	}
-}
-@supports not (zoom:2) {
-	#guest-list input[type=checkbox] {
-		transform: scale(2);
-		margin: 15px;
-	}
-}
-
-#guest-list input[type=checkbox] {
-  margin-left: auto;
-  margin-right: auto;
+.guest {
+  background-color: rgba(255, 255, 255, .7);
 }

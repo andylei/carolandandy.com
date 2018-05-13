@@ -26,18 +26,14 @@
           </button>
         </div>
         <div id="show-reservation" class="hidden panel">
-          <table id="guest-list">
-            <thead>
-              <tr>
-                <th>Yes?</th>
-                <th>Guest</th>
-              </tr>
-            </thead>
-          </table>
-          <button id="guests-save">
-            <span id="guests-save-label">RSVP</span>
-            <img id="guests-save-spinner" class="hidden" src="./img/spinner.svg" />
-          </button>
+          <form id="guests">
+            <div id="guest-list">
+            </div>
+            <button type="submit" id="guests-save">
+              <span id="guests-save-label">Submit RSVP</span>
+              <img id="guests-save-spinner" class="hidden" src="./img/spinner.svg" />
+            </button>
+          </form>
         </div>
         <div id="success" class="hidden panel">
         </div>
