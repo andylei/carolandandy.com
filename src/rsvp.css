@@ -10,6 +10,10 @@ body {
   font-size: calc(32px + 4vh);
 }
 
+.logo a {
+  text-decoration: none;
+}
+
 .logo .hl {
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: var(--hl-color);
@@ -29,6 +33,12 @@ body {
   width: 10em;
   min-width: 30vw;
   max-width: 95vw;
+}
+
+#success {
+  text-shadow: .05em .05em .05em var(--hl-color);
+  background-color: rgba(255, 255, 255, .7);
+  padding: .5em 0;
 }
 
 .reservation > * {
@@ -63,15 +73,21 @@ body {
 }
 
 .reservation .rsvp > * {
-  margin-bottom: .7em;
-
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
 }
 
+.reservation .rsvp .coming {
+  margin-bottom: .7em;
+}
+
 .rsvp .answer {
   flex-grow: .2;
+}
+
+.rsvp .answer > label, .rsvp .answer > div {
+  margin-bottom: .3em;
 }
 
 .rsvp label {
@@ -80,11 +96,29 @@ body {
 }
 
 .rsvp .dietary {
-  margin-left: .85em;
+  margin-left: 1.2em;
+  text-align: left;
 }
 
 .rsvp .dietary textarea {
+  font-family: inherit;
   width: 9em;
+}
+
+.rsvp .dietary > button {
+  display: inline;
+  background-color: #afafaf;
+  width: fit-content;
+
+  border: 1px solid black;
+}
+
+.rsvp .dietary > button.hidden {
+  display: none;
+}
+
+.reservation button.hidden {
+  display: none;
 }
 
 #reservation-error, .reservation input[type=text], .reservation button {
@@ -94,6 +128,8 @@ body {
 #reservation-error {
   color: #e91e63;
   background-color: rgba(255, 255, 255, .7);
+  font-size: 75%;
+  padding: .2em 0;
 }
 
 .reservation input[type=text], .reservation button {
@@ -115,16 +151,16 @@ input[type="radio"] + label {
 }
 
 input[type="radio"] + label::before {
-  content     : '✓';
-  display: inline-block;
-  width       : 1em;
-  color       : rgba(0,0,0,0);
-  font-size   : .8em;
-  line-height : 1em;
-  font-weight : bold;
-  margin      : .25em;
+  content       : '✓';
+  display       : inline-block;
+  width         : 1em;
+  color         : rgba(0,0,0,0);
+  font-size     : .8em;
+  line-height   : 1em;
+  font-weight   : bold;
+  margin        : .25em;
   border-bottom : .05em solid black;
-  vertical-align  : middle;
+  vertical-align: middle;
 }
 
 input[type="radio"]:checked + label::before {
@@ -150,8 +186,17 @@ button[disabled] {
 
 button {
   background-color: var(--hl-color);
+  cursor: pointer;
 }
 
 .guest {
   background-color: rgba(255, 255, 255, .7);
+  margin-bottom: .5em;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 1s;
+}
+
+.guest.visible {
+  max-height: 9em;
 }
