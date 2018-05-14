@@ -24,8 +24,6 @@ function init() {
   bindRsvpSearchEvents();
   handleRsvpVisibility();
   init_nav_button();
-
-  test_init();
 }
 
 function showEle(ele, animateClass) {
