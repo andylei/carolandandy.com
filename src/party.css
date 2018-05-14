@@ -8,7 +8,7 @@ body {
   width: 100%;
   min-height: 100%;
 
-  font-family: 'Fjalla One', serif;
+  font-family: 'Roboto', serif;
 }
 
 h1 {
@@ -67,11 +67,11 @@ h1 {
 }
 
 .name {
-  font-size: 26px;
+  font-size: 22px;
   color: white;
 }
 
 .blurb {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: .03em;
 }

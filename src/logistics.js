@@ -236,6 +236,7 @@ loadGoogleMapsAPI({ key: GMAP_API_KEY }).then(function(gMaps) {
       center: FOUNDRY_LOC,
       mapTypeId: 'terrain',
       keyboardShortcuts: false,
+      disableDefaultUI: true,
       styles: MAP_STYLE
     }
   );

@@ -24,6 +24,7 @@ function init() {
   bindRsvpSearchEvents();
   handleRsvpVisibility();
   init_nav_button();
+  document.getElementById('rsvp-name').focus();
 }
 
 function showEle(ele, animateClass) {

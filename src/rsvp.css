@@ -1,5 +1,5 @@
 body {
-  font-family: "Fjalla One", sans;
+  font-family: "Roboto", sans-serif;
 }
 
 :root {
@@ -34,9 +34,11 @@ body {
 }
 
 .reservation > .panel {
-  width: 10em;
+  width: 12em;
+  font-size: 28px;
   min-width: 30vw;
   max-width: 95vw;
+  margin-bottom: 2em;
 }
 
 #success {
@@ -45,14 +47,10 @@ body {
   padding: .5em 0;
 }
 
-.reservation > * {
-  font-size: 50px;
-}
-
 @media
 screen and (max-width: 400px) {
   .reservation > * {
-    font-size: 40px;
+    font-size: 24px;
   }
 }
 
@@ -62,11 +60,12 @@ screen and (max-width: 400px) {
 }
 
 .reservation .name {
-  margin-bottom: .3em;
+  border-bottom: 1px solid grey;
+  margin-bottom: .4em;
 }
 
 .reservation .rsvp {
-  font-size: 60%;
+  font-size: 75%;
 }
 
 .reservation .rsvp > * {
@@ -84,6 +83,7 @@ screen and (max-width: 400px) {
 }
 
 .rsvp .answer > label, .rsvp .answer > div {
+  text-align: left;
   margin-bottom: .3em;
 }
 
@@ -99,7 +99,7 @@ screen and (max-width: 400px) {
 
 .rsvp .dietary textarea {
   font-family: inherit;
-  width: 8.5em;
+  width: 9em;
 }
 
 .rsvp .dietary > button {
@@ -132,7 +132,7 @@ screen and (max-width: 400px) {
 .reservation input[type=text], .reservation button {
   display: block;
   text-align: center;
-  font-family: "Fjalla One", sans;
+  font-family: inherit;
   border: none;
   width: 100%;
 }
@@ -192,8 +192,9 @@ button {
   max-height: 0;
   overflow: hidden;
   transition: max-height 1s;
+  padding: .3em;
 }
 
 .guest.visible {
-  max-height: 9em;
+  max-height: 12em;
 }
