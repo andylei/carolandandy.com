@@ -27,7 +27,11 @@ module.exports = {
     port: 9000
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'])
+    new CleanWebpackPlugin(['dist']),
+    new WebPlugin({
+      template: `./src/rsvp-index.html`,
+      filename: 'RSVP/index.html'
+    })
   ].concat(PAGES.map((p) => new WebPlugin({
     template: `./src/${p}.html`,
     filename: `${p}.html`,
