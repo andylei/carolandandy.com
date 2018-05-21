@@ -1,0 +1,133 @@
+body {
+  font-size: 36px;
+  font-family: "MrsEaves", serif;
+}
+
+@media screen and (max-width: 800px) {
+  body {
+    font-size: 24px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  body {
+    font-size: 16px;
+  }
+
+  #nav {
+    height: 1.5em;
+    margin: 0;
+    font-size: inherit;
+    vertical-align: bottom;
+    top: .15em;
+  }
+
+  #nav button {
+    height: 1.5em;
+  }
+
+  #nav img {
+    height: 1.5em;
+    width: 1.5em;
+  }
+
+  #nav a {
+    font-size: 1em;
+  }
+
+  #links {
+    float: right;
+    line-height: 1.5em;
+  }
+
+  #title {
+    padding-left: .75em;
+  }
+}
+
+#title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vw;
+  z-index: 50;
+  background-color: rgba(255,255,255,.7);
+  text-align: center;
+}
+
+#title b {
+  font-size: 1.5em;
+  font-weight: normal;
+}
+
+
+section {
+  display: flex;
+  position: relative;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.caption {
+  position: absolute;
+  bottom: -.5em;
+  left: 0;
+  width: 100vw;
+  z-index: 20;
+
+  display: flex;
+  align-items: center;
+}
+
+.caption .item {
+  flex: 1;
+  text-align: center;
+  background-color: rgba(255,255,255,.7);
+  height: fit-content;
+  line-height: 1em;
+}
+
+.caption .item.year {
+  flex: 0;
+  width: fit-content;
+  order: 2;
+  padding: .5em;
+}
+.caption .item.carol {
+  order: 1;
+  padding-right: 1em;
+}
+.caption .item.andy {
+  order: 3;
+  padding-left: 1em;
+}
+
+.card {
+  position: relative;
+  width: 50vw;
+}
+
+.card.wide {
+  width: 64vw;
+}
+
+.card.tall {
+  width: 36vw;
+}
+
+.card img {
+  display: block;
+  width: 100%;
+}
+
+.card .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+
+  background-color: rgba(255,255,255,.7);
+  padding: .5vh .5vw;
+}
