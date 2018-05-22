@@ -69,6 +69,7 @@ h1 {
 .name {
   font-size: 22px;
   color: white;
+  margin-right: 4px;
 }
 
 .blurb {
