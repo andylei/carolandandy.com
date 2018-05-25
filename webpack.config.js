@@ -8,6 +8,7 @@ const PAGES = [
   'story',
   'logistics',
   'photos',
+  'registry',
   'rsvp',
   'party'
 ]

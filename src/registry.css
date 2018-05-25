@@ -1,0 +1,20 @@
+html {
+  background: transparent;
+}
+
+.title {
+  margin-top: 0;
+  background: url('./img/bg5.jpg') no-repeat center center fixed;
+  background-size: cover;
+  height: 100%;
+}
+
+.title .overlay {
+  width: 100%;
+  background-color: rgba(256, 256, 256, .4);
+}
+
+.logo > * {
+  margin: 3vh auto;
+  width: fit-content;
+}
