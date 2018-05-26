@@ -2,7 +2,6 @@ import './story.css';
 import 'vis/dist/vis.css';
 import loadGoogleMapsAPI from 'load-google-maps-api';
 import vis from 'vis';
-import data from './storydata.js';
 
 const GMAP_API_KEY = 'AIzaSyDWkfZYTFW_9d2eIJwFnXznFWIXmiMQIr4';
 const METER_TO_MILE = 0.000621371;
