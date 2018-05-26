@@ -1,6 +1,15 @@
+function nav() {
+  return document.getElementById('nav');
+}
+
 export default function init_nav_button() {
-  let nav = document.getElementById('nav');
-  nav.addEventListener('click', function() {
-    nav.classList.toggle('open');
-  })
+  nav().addEventListener('click', navToggleHandler);
+}
+
+function navToggleHandler()  {
+  nav().classList.toggle('open');
+}
+
+export {
+  navToggleHandler
 }

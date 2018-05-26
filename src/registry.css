@@ -18,3 +18,11 @@ html {
   margin: 3vh auto;
   width: fit-content;
 }
+
+.info {
+  font-family: 'Roboto', sans-serif;
+  width: fit-content;
+  background-color: rgba(256, 256, 256, .6);
+  
+  padding: 3vh 3vw;
+}

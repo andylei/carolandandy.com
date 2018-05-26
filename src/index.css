@@ -28,6 +28,10 @@ html {
   font-family: bombshell;
 }
 
+.logo {
+  cursor: pointer;
+}
+
 .logo table {
   font-family: MrsEaves;
   font-size: 6vh;
