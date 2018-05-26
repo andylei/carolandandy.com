@@ -13,22 +13,27 @@ body {
 
 h1 {
   text-align: center;
-  margin: 30px auto 12px auto;
   font-size: 50px;
   font-family: MrsEaves;
   font-weight: normal;
   text-transform: uppercase;
   letter-spacing: .06em;
 
-  width: 80vw;
+  width: 100%;
   color: rgba(0, 0, 0, .6);
-  min-width: 400px;
-  padding: 0 40px;
+}
+
+@media screen and (max-width: 720px) {
+  h1 {
+    box-sizing: border-box;
+    font-size: 30px;
+    text-align: right;
+    padding: 0 30px 0 60px;
+  }
 }
 
 .container {
   padding: 0 40px;
-  min-width: 400px;
 
   margin-left: auto;
   margin-right: auto;
@@ -42,7 +47,7 @@ h1 {
 
 .cell {
   flex-basis: 40vw;
-  min-width: 400px;
+  min-width: 300px;
   box-sizing: border-box;
 
   background-color: rgba(0, 0, 0, .5);
