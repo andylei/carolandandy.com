@@ -21,14 +21,28 @@ h1 {
 
   width: 100%;
   color: rgba(0, 0, 0, .6);
+  margin-bottom: 0;
 }
 
 @media screen and (max-width: 720px) {
   h1 {
     box-sizing: border-box;
     font-size: 30px;
-    text-align: right;
     padding: 0 30px 0 60px;
+  }
+
+  #nav.open {
+    display: flex;
+  }
+
+  #nav.open #links {
+    min-width: 305px;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  h1 {
+    text-align: right;
   }
 }
 
