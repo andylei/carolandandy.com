@@ -49,6 +49,9 @@ function bindRsvpSearchEvents() {
 }
 
 function bindGuestEvents() {
+  document
+    .getElementById('your-email')
+    .addEventListener('input', function(event) { handleGuestNameInput(event.target.form) });
   for (let input of document.querySelectorAll('.name > input[type=text]')) {
     input.addEventListener('input', function(event) { handleGuestNameInput(event.target.form) } );
   }
@@ -76,6 +79,10 @@ function isFormValid(form) {
     return;
   }
   let formData = getFormData(form);
+  let email = formData['your-email'];
+  if (!email) {
+    return false;
+  }
   for (let guest of res.guests) {
     if (guest.name) {
       continue;
@@ -89,6 +96,50 @@ function isFormValid(form) {
   return true
 }
 
+function syncAcceptDecline(form$) {
+  let res = LOADED_RESERVATION;
+  if (!res) {
+    return;
+  }
+  let formData = getFormData(form$);
+  let anyNamedGuestsComing = false;
+  for (let guest of res.guests) {
+    let id = guest.id;
+    document.getElementById(`guest-${id}`).classList.remove('hidden');
+    let coming = formData[`coming-${id}`] === 'yes';
+    if (guest.name && coming) {
+      anyNamedGuestsComing = true;
+    }
+    let nameInput = document.querySelector(`input[name=name-${id}]`);
+    if (nameInput) {
+      if (coming) {
+        nameInput.removeAttribute('disabled');
+        nameInput.setAttribute('placeholder', 'Name of guest');
+      } else {
+        nameInput.setAttribute('disabled', 'disabled');
+        nameInput.setAttribute('placeholder', 'Guest');
+      }
+    }
+    let dinner$ = document.querySelector(`#guest-${id} .dinner`);
+    if (coming) {
+      dinner$.classList.remove('hidden');
+    } else {
+      dinner$.classList.add('hidden');
+    }
+  }
+  if (!anyNamedGuestsComing) {
+    // all unnamed guests should be hidden
+    for (let guest of res.guests) {
+      if (guest.name) {
+        continue;
+      }
+      let id = guest.id;
+      document.getElementById(`guest-${id}`).classList.add('hidden');
+      document.getElementById(`coming-${id}-no`).checked = true;
+    }
+  }
+}
+
 function handleDietaryExpansion(e) {
   e.preventDefault();
   hideEle(e.target);
@@ -97,6 +148,7 @@ function handleDietaryExpansion(e) {
 }
 
 function handleGuestNameInput(form$) {
+  syncAcceptDecline(form$);
   let button = document.getElementById('guests-save');
   if (isFormValid(form$)) {
     button.removeAttribute('disabled');
@@ -264,7 +316,7 @@ function showReservation(json) {
     }
     let template = document.createElement('template');
     template.innerHTML = `
-      <div class="guest">
+      <div id="guest-${guest.id}" class="guest">
         <div class="name">${nameHtml}</div>
         <div class="rsvp">
           <div class="coming">

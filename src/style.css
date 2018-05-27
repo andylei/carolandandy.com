@@ -78,6 +78,10 @@ body {
 }
 
 .hidden {
+  display: none !important;
+}
+
+input[type=text].hidden {
   display: none;
 }
 

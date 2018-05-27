@@ -13,8 +13,8 @@ function init() {
   let controller = new ScrollMagic.Controller();
 
   new ScrollMagic.Scene({ duration: 400 })
-    .setTween("#title", { opacity: 0 }) // pins the element for the the scene's duration
-    .addTo(controller); // assign the scene to the controller
+    .setTween("#title", { opacity: 0 })
+    .addTo(controller);
   
   let years = ['proposal'];
   for (let i = 1988; i < 2018; i++) {

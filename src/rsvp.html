@@ -23,7 +23,7 @@
         <div id="find-reservation" class="panel">
           <div id="reservation-error" class="hidden">
           </div>
-          <input type="text" id="rsvp-name" placeholder="Your Name" />
+          <input type="text" id="rsvp-name" placeholder="Your name" />
           <button id="rsvp-ok" >
             <span id="rsvp-ok-label">OK</span>
             <img id="rsvp-ok-spinner" class="hidden" src="./img/spinner.svg" />
@@ -32,6 +32,9 @@
         <div id="show-reservation" class="hidden panel">
           <form id="guests">
             <div id="guest-list">
+            </div>
+            <div class="email-container">
+              <input type="email" name="your-email" id="your-email" placeholder="Your email">
             </div>
             <button type="submit" id="guests-save">
               <span id="guests-save-label">Submit RSVP</span>
@@ -48,9 +51,15 @@
         <img inline src="./img/burger-black.svg">
       </button>
       <div id="links">
-        <a href="/logistics.html">logistics</a>
-        <span class="separator"> </span>
+        <a href="/">home</a>
+        <span class="separator"></span>
+        <a href="/logistics.html">wedding</a>
+        <span class="separator"></span>
+        <a href="/photos.html">story</a>
+        <span class="separator"></span>
         <a href="/party.html">team</a>
+        <span class="separator"></span>
+        <a href="/registry.html">registry</a>
       </div>
     </div>
     <script src="rsvp"></script>
