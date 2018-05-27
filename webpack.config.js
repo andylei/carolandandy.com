@@ -1,39 +1,43 @@
-const _ = require('lodash');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const { WebPlugin } = require('web-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const PAGES = [
   'index',
-  'story',
   'logistics',
   'photos',
+  'party',
   'registry',
   'rsvp',
-  'party'
-]
+];
+
+function htmlPlugin(name) {
+  return new HtmlWebpackPlugin({
+    chunks: [name],
+    template: `./src/${name}.html`,
+    filename: `${name}.html`,
+  });
+}
+
+const HTML_PLUGINS = PAGES.map(htmlPlugin);
+
+const ENTRYPOINTS = Object.assign(...PAGES.map(p => ({[p] : `./src/${p}.js`})));
 
 module.exports = {
-  entry: _.zipObject(
-    PAGES,
-    PAGES.map((p) => `./src/${p}.js`)
-  ),
+  entry: ENTRYPOINTS,
   output: {
-    filename: '[name].js',
-    path: path.resolve(__dirname, 'dist')
+    path: __dirname + '/dist',
+    filename: '[name].bundle.js'
   },
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
-    port: 9000
+    port: 9000,
   },
   plugins: [
-    new CleanWebpackPlugin(['dist'])
-  ].concat(PAGES.map((p) => new WebPlugin({
-    template: `./src/${p}.html`,
-    filename: `${p}.html`,
-    requires: [p]
-  }))),
+    new CleanWebpackPlugin(['dist']),
+    ...HTML_PLUGINS
+  ],
   resolve: {
     alias: {
       "TweenLite": path.resolve('node_modules', 'gsap/src/uncompressed/TweenLite.js'),
@@ -46,6 +50,12 @@ module.exports = {
   },
   module: {
     rules: [
+      {
+        test: /\.(html)$/,
+        use: [
+          'html-loader'
+        ]
+      },
       {
         test: /\.css$/,
         use: [
@@ -62,13 +72,7 @@ module.exports = {
       {
         test: /\.(ttf|eot|woff|woff2)$/,
         loader: "file-loader"
-      },
-      {
-        test: /\.(html)$/,
-        use: [
-          'html-loader'
-        ]
       }
     ]
   }
-};
+}

@@ -33,6 +33,7 @@
   },
   "scripts": {
     "build": "webpack",
+    "s": "webpack-dev-server --open --config webpack.config2.js",
     "buildprod": "webpack --config webpack.prod.js",
     "start": "webpack-dev-server --open"
   }
