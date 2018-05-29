@@ -1,5 +1,5 @@
 html {
-  background: url('./img/foundry-ivy.jpg') no-repeat center center fixed;
+  background: url('./img/illfoundry.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 
@@ -59,6 +59,14 @@ screen and (max-width: 500px) {
 
 .card.top {
   margin-bottom: 0;
+}
+
+.card.top img {
+  width: 100%;
+}
+
+.card.bottom {
+  height: 100vh;
 }
 
 .card h1 {
