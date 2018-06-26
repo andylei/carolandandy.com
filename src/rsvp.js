@@ -175,6 +175,7 @@ function handleGuestSave(event) {
     guest.dietary = formData['dietary-' + guest.id] || null;
   }
   res.reservation.guests = res.guests;
+  res.reservation.email = formData['your-email'];
   let xhr = new XMLHttpRequest();
   let url = `${HOST}/reservation/${res.reservation.id}`;
   xhr.open('PUT', url);
