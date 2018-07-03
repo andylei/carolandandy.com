@@ -79,19 +79,21 @@ function isFormValid(form) {
     return;
   }
   let formData = getFormData(form);
-  let email = formData['your-email'];
-  if (!email) {
-    return false;
-  }
+  let anyComing = false;
   for (let guest of res.guests) {
     if (guest.name) {
       continue;
     }
     let coming = formData['coming-' + guest.id] === 'yes';
+    anyComing |= coming;
     let name = formData['name-' + guest.id];
     if (coming && !name) {
       return false;
     }
+  }
+  let email = formData['your-email'];
+  if (anyComing && !email) {
+    return false;
   }
   return true
 }
